@@ -1,10 +1,13 @@
 package foodservice.fooddeliveryservice.repositories;
 
 import foodservice.fooddeliveryservice.models.FoodItem;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
+
+@Repository
 public class FoodItemRepository {
 
    private static Map<String, FoodItem> foodItems = new HashMap<>();

@@ -4,20 +4,21 @@ package foodservice.fooddeliveryservice.repositories;
 // static data -- putting in map
 
 import foodservice.fooddeliveryservice.models.FoodItem;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class OrderRepository {
 
+@Repository
+public class OrderRepository {
 
    private static Map<Integer, Map<Integer, List<FoodItem>>> orders = new HashMap<>();
 
-
    public int createOrder(int customerNumber, List<FoodItem> list) {
       int orderId = 1;
-      if (null != orders.get(customerNumber)) {
+      if (null == orders.get(customerNumber)) {
          Map<Integer, List<FoodItem>> map = new HashMap<>();
          map.put(orderId, list);
          orders.put(customerNumber, map);
